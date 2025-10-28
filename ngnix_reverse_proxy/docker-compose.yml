@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  
+  reverse_proxy :
+    container_name: reverse_proxy
+    build :
+      context: ./reverse_proxy
+      dockerfile: Dockerfile
+    ports:
+        - "80:80"
+    depends_on:
+      - server1
+      - server2
+      - server3
+    restart: unless-stopped
+
+  
+  server3:
+   container_name: server3
+   build :
+     context: ./backend
+     dockerfile: Dockerfile
+   ports:
+      - "8004:8002"
+   depends_on:
+    - server1
+    - server2
+   restart: unless-stopped
+   environment:
+      - SERVER=server3
+  
+  server2:
+   container_name: server2
+   build :
+     context: ./backend
+     dockerfile: Dockerfile
+   ports:
+      - "8003:8002"
+   depends_on:
+    - server1
+   restart: unless-stopped
+   environment:
+      - SERVER=server2
+
+  server1:
+   container_name: server1
+   build :
+     context: ./backend
+     dockerfile: Dockerfile
+   ports:
+      - "8002:8002" 
+   environment:
+      - SERVER=server1
+  
