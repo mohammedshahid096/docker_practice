@@ -1,4 +1,4 @@
-### 3. Set Up Redis
+### Set Up Redis
 
 You will need Redis for caching and session management. You can either install Redis locally or use a cloud-based solution like [Redis Cloud](https://redis.com/solutions/cloud/).
 
