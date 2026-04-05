@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Quote Request</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      font-family:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+        Arial, sans-serif;
+      background-color: #f4f4f4;
+    "
+  >
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px 0">
+      <tr>
+        <td align="center">
+          <table width="700" cellpadding="0" cellspacing="0" style="background-color: #ffffff; max-width: 700px">
+
+            <!-- Header -->
+            <tr>
+              <td
+                style="
+                  background: linear-gradient(135deg, blue, #f06595 100%);
+                  padding: 36px 20px;
+                  text-align: center;
+                "
+              >
+                <h1 style="color: #ffffff; margin: 0; font-size: 26px; font-weight: 600;">
+                  New Quote Request
+                </h1>
+                <p style="color: #fff3f5; margin: 8px 0 0 0; font-size: 13px;">
+                  A new quotation request has been submitted.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Content -->
+            <tr>
+              <td style="padding: 34px 30px">
+
+                <!-- Quote Summary -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 22px;">
+                  <tr>
+                    <td style="background-color: #fff5f7; border: 1px solid #ffe0e7; border-radius: 8px; padding: 18px;">
+                      <p style="font-size: 12px; color: #6b2b3a; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px 0;">
+                        Quote Summary
+                      </p>
+                      <p style="font-size: 14px; color: #6b2b3a; margin: 0;">
+                        <strong>Quotation Number:</strong> {{quotation_number}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Customer Details -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin: 18px 0;">
+                  <tr>
+                    <td style="background-color: #f8f9fa; border-radius: 8px; padding: 18px;">
+                      <p style="font-size: 12px; color: #4a4a4a; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px 0;">
+                        Customer Details
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0 0 8px 0;">
+                        <strong>Name:</strong> {{customer_name}}
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0 0 8px 0;">
+                        <strong>Email:</strong> {{customer_email}}
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0;">
+                        <strong>Phone:</strong> {{phone}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Company Details -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin: 18px 0;">
+                  <tr>
+                    <td style="background-color: #f8f9fa; border-radius: 8px; padding: 18px;">
+                      <p style="font-size: 12px; color: #4a4a4a; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px 0;">
+                        Company Details
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0 0 8px 0;">
+                        <strong>Company Name:</strong> {{company_name}}
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0 0 8px 0;">
+                        <strong>Company Address:</strong> {{company_address}}
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0 0 8px 0;">
+                        <strong>GSTIN:</strong> {{gstin}}
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0 0 8px 0;">
+                        <strong>Industry Type:</strong> {{industry_type}}
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0;">
+                        <strong>Sector Type:</strong> {{sector_type}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Event Details -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin: 18px 0;">
+                  <tr>
+                    <td style="background-color: #eef6ff; border-left: 4px solid #2f80ed; border-radius: 4px; padding: 16px;">
+                      <p style="font-size: 12px; color: #1f4f8e; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px 0;">
+                        Event Details
+                      </p>
+                      <p style="font-size: 14px; color: #1f4f8e; margin: 0 0 8px 0;">
+                        <strong>Event Type:</strong> {{event_type}}
+                      </p>
+                      <p style="font-size: 14px; color: #1f4f8e; margin: 0 0 8px 0;">
+                        <strong>Event Start Date:</strong> {{event_start_date}}
+                      </p>
+                      <p style="font-size: 14px; color: #1f4f8e; margin: 0 0 6px 0;">
+                        <strong>Description:</strong>
+                      </p>
+                      <p style="font-size: 14px; color: #1f4f8e; margin: 0;">
+                        {{event_description}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Staff Requirements -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin: 18px 0;">
+                  <tr>
+                    <td style="background-color: #f8f9fa; border-radius: 8px; padding: 16px;">
+                      <p style="font-size: 12px; color: #4a4a4a; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 12px 0;">
+                        Staff Requirements
+                      </p>
+
+                      {{staff_counts_formatted}}
+
+                    </td>
+                  </tr>
+                </table>
+
+                <div style="font-size: 14px; color: #666666; line-height: 1.6; margin-top: 10px;">
+                  Please review this quotation in the admin panel and follow up with the customer.
+                </div>
+
+                <div style="height: 1px; background-color: #e0e0e0; margin: 24px 0;"></div>
+
+                <div style="font-size: 12px; color: #888888;">
+                  System generated notification.
+                </div>
+
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="background-color: #f8f9fa; padding: 26px; text-align: center; border-top: 1px solid #e0e0e0;">
+                <p style="font-size: 12px; color: #999999; margin: 5px 0;">
+                  Internal notification email. Do not reply.
+                </p>
+                <p style="font-size: 12px; color: #999999; margin-top: 14px;">
+                  (c) 2026 Your Company Name. All rights reserved.
+                </p>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quote Request Received</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      font-family:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+        Arial, sans-serif;
+      background-color: #f4f4f4;
+    "
+  >
+    <table
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      style="background-color: #f4f4f4; padding: 20px 0"
+    >
+      <tr>
+        <td align="center">
+          <table
+            width="600"
+            cellpadding="0"
+            cellspacing="0"
+            style="background-color: #ffffff; max-width: 600px"
+          >
+            <!-- Header -->
+            <tr>
+              <td
+                style="
+                  background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+                  padding: 40px 20px;
+                  text-align: center;
+                "
+              >
+                <h1
+                  style="
+                    color: #ffffff;
+                    margin: 0;
+                    font-size: 28px;
+                    font-weight: 600;
+                  "
+                >
+                  Quote Request Received
+                </h1>
+                <p
+                  style="
+                    color: #f2fff6;
+                    margin: 8px 0 0 0;
+                    font-size: 14px;
+                  "
+                >
+                  We are reviewing your details and will respond shortly.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Content -->
+            <tr>
+              <td style="padding: 40px 30px">
+                <div style="font-size: 18px; color: #333333; margin-bottom: 20px">
+                  Hello {{first_name}},
+                </div>
+
+                <div
+                  style="
+                    font-size: 16px;
+                    color: #666666;
+                    line-height: 1.6;
+                    margin-bottom: 24px;
+                  "
+                >
+                  Thank you for your quote request. We have successfully received
+                  your submission and our team is reviewing it now.
+                </div>
+
+                <!-- Quote Summary -->
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="margin: 20px 0"
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: #f6fff9;
+                        border: 1px solid #d8f3dc;
+                        border-radius: 8px;
+                        padding: 18px;
+                      "
+                    >
+                      <p
+                        style="
+                          font-size: 13px;
+                          color: #4a4a4a;
+                          text-transform: uppercase;
+                          letter-spacing: 1px;
+                          margin: 0 0 10px 0;
+                        "
+                      >
+                        Quote Details
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0 0 10px 0">
+                        <strong>Quotation Number:</strong>
+                        <span style="color: #0f8a5f">{{quotation_number}}</span>
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0">
+                        <strong>Company Name:</strong> {{company_name}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Next Steps -->
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="margin: 22px 0"
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: #eef6ff;
+                        border-left: 4px solid #2f80ed;
+                        padding: 15px;
+                        border-radius: 4px;
+                      "
+                    >
+                      <p style="font-size: 14px; color: #1f4f8e; margin: 0">
+                        <strong>What happens next?</strong> A team member will review
+                        your request and contact you to confirm details and provide
+                        the quotation.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <div
+                  style="
+                    font-size: 16px;
+                    color: #666666;
+                    line-height: 1.6;
+                    margin-top: 10px;
+                  "
+                >
+                  If you need to add any extra information, reply to this email
+                  with your quotation number.
+                </div>
+
+                <div style="height: 1px; background-color: #e0e0e0; margin: 25px 0"></div>
+
+                <div style="font-size: 16px; color: #333333">
+                  Regards,<br />
+                  <strong>Sales Team</strong>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td
+                style="
+                  background-color: #f8f9fa;
+                  padding: 30px;
+                  text-align: center;
+                  border-top: 1px solid #e0e0e0;
+                "
+              >
+                <p style="font-size: 13px; color: #999999; margin: 5px 0">
+                  This is an automated message, please do not reply to this email.
+                </p>
+                <p style="font-size: 13px; color: #999999; margin-top: 16px">
+                  © 2026 Your Company Name. All rights reserved.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

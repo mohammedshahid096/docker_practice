@@ -1,0 +1,92 @@
+{
+  "sendRegisterOtpTemplate": {
+    "message": {
+      "subject": "Your TeamVx Verification Code",
+      "text": "Use the verification code below to complete your TeamVx registration.",
+      "html": null
+    },
+    "fileName": "sendRegisterOtp.template.html",
+    "dynamicDataKeys": ["register_otp"]
+  },
+  "sendRegisterVerificationLinkTemplate": {
+    "message": {
+      "subject": "Your TeamVx Verification Link",
+      "text": "Use the verification link below to complete your TeamVx registration.",
+      "html": null
+    },
+    "fileName": "sendRegisterVerification.template.html",
+    "dynamicDataKeys": ["register_verification_link","email_context_message"]
+  },
+  "sendResetPasswordLinkTemplate": {
+    "message": {
+      "subject": "Your TeamVx Password Reset Link",
+      "text": "We received a request to reset your TeamVx password. Use the link below to create a new password.",
+      "html": null
+    },
+    "fileName": "sendResetPassword.template.html",
+    "dynamicDataKeys": ["user_name", "reset_password_link"]
+  },
+  "sendContactUsConfirmationTemplate": {
+    "message": {
+      "subject": "TEAMVX Support Team | We've Received Your Support Request",
+      "text": "Hello, Thank you for contacting us. We have successfully received your {{supportType}} request for {{eventDate}}. Our team will review your message and get back to you within 24-48 hours. Reference Number: {{reference_number}}"
+    },
+    "fileName": "sendContactUsConfirmation.template.html",
+    "dynamicDataKeys": [
+      "first_name",
+      "last_name",
+      "email",
+      "support_type",
+      "consultation_mode",
+      "event_date",
+      "preferred_time",
+      "comments"
+    ]
+  },
+  "sendContactUsAdminTemplate": {
+    "message": {
+      "subject": "Support request received from {{first_name}} {{last_name}}",
+      "text": "New support request from {{first_name}} {{last_name}} ({{email}}). Support type: {{support_type}}. Consultation mode: {{consultation_mode}}. Event date: {{event_date}}. Preferred time: {{preferred_time}}. Message: {{comments}}."
+    },
+    "fileName": "sendContactUsAdmin.template.html",
+    "dynamicDataKeys": [
+      "first_name",
+      "last_name",
+      "email",
+      "support_type",
+      "consultation_mode",
+      "event_date",
+      "preferred_time",
+      "comments"
+    ]
+  },
+  "sendQuoteRequestConfirmationTemplate": {
+    "message": {
+      "subject": "Quote Request Received | Quotation No: {{quotation_number}}"
+    },
+    "fileName": "sendQuoteRequestConfirmationTemplate.html",
+    "dynamicDataKeys": ["first_name", "quotation_number", "company_name"]
+  },
+  "sendNewQuoteRequestAdminTemplate": {
+    "message": {
+      "subject": "New Quote Request | Quotation No: {{quotation_number}}"
+    },
+    "fileName": "sendNewQuoteRequestAdminTemplate.html",
+    "dynamicDataKeys": [
+      "quotation_number",
+      "customer_name",
+      "customer_email",
+      "phone",
+      "company_name",
+      "company_address",
+      "gstin",
+      "industry_type",
+      "sector_type",
+      "event_type",
+      "event_start_date",
+      "event_description",
+      "staff_counts_formatted"
+
+    ]
+  }
+}

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify Your Account</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+      }
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 40px 20px;
+        text-align: center;
+      }
+      .header h1 {
+        color: #ffffff;
+        margin: 0;
+        font-size: 28px;
+        font-weight: 600;
+      }
+      .content {
+        padding: 40px 30px;
+      }
+      .greeting {
+        font-size: 18px;
+        color: #333333;
+        margin-bottom: 20px;
+      }
+      .message {
+        font-size: 16px;
+        color: #666666;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+      .otp-container {
+        background-color: #f8f9fa;
+        border: 2px dashed #667eea;
+        border-radius: 8px;
+        padding: 25px;
+        text-align: center;
+        margin: 30px 0;
+      }
+      .otp-label {
+        font-size: 14px;
+        color: #666666;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .otp-code {
+        font-size: 36px;
+        font-weight: bold;
+        color: #667eea;
+        letter-spacing: 8px;
+        margin: 10px 0;
+        font-family: 'Courier New', monospace;
+      }
+      .otp-validity {
+        font-size: 13px;
+        color: #999999;
+        margin-top: 15px;
+      }
+      .warning {
+        background-color: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 15px;
+        margin: 25px 0;
+        border-radius: 4px;
+      }
+      .warning-text {
+        font-size: 14px;
+        color: #856404;
+        margin: 0;
+      }
+      .footer {
+        background-color: #f8f9fa;
+        padding: 30px;
+        text-align: center;
+        border-top: 1px solid #e0e0e0;
+      }
+      .footer-text {
+        font-size: 13px;
+        color: #999999;
+        margin: 5px 0;
+      }
+      .support-link {
+        color: #667eea;
+        text-decoration: none;
+      }
+      .divider {
+        height: 1px;
+        background-color: #e0e0e0;
+        margin: 25px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <div class="header">
+        <h1>🔐 Account Verification</h1>
+      </div>
+
+      <div class="content">
+        <div class="greeting">Hello User,</div>
+
+        <div class="message">
+          We received a request to verify your account. Please use the One-Time
+          Password (OTP) below to complete your verification:
+        </div>
+
+        <div class="otp-container">
+          <div class="otp-label">Your OTP Code</div>
+          <div class="otp-code">{{register_otp}}</div>
+          <div class="otp-validity">⏱️ Valid for 5 minutes</div>
+        </div>
+
+        <div class="message">
+          Enter this code in the verification page to proceed. If you didn't
+          request this code, please ignore this email.
+        </div>
+
+        <div class="warning">
+          <p class="warning-text">
+            ⚠️ <strong>Security Notice:</strong> Never share this OTP with
+            anyone. Our team will never ask for your OTP via email, phone, or
+            text.
+          </p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="message" style="font-size: 14px">
+          If you're having trouble, please contact our support team or visit our
+          help center.
+        </div>
+      </div>
+
+      <div class="footer">
+        <p class="footer-text">
+          This is an automated message, please do not reply to this email.
+        </p>
+        <p class="footer-text">
+          Need help? <a href="#" class="support-link">Contact Support</a>
+        </p>
+        <p class="footer-text" style="margin-top: 20px">
+          © 2026 Your Company Name. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

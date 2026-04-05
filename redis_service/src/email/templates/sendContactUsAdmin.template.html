@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Support Request</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      font-family:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+        Arial, sans-serif;
+      background-color: #f4f4f4;
+    "
+  >
+    <table
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      style="background-color: #f4f4f4; padding: 20px 0"
+    >
+      <tr>
+        <td align="center">
+          <table
+            width="700"
+            cellpadding="0"
+            cellspacing="0"
+            style="background-color: #ffffff; max-width: 700px"
+          >
+            <!-- Header -->
+            <tr>
+              <td
+                style="
+                  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                  padding: 36px 20px;
+                  text-align: center;
+                "
+              >
+                <h1
+                  style="
+                    color: #ffffff;
+                    margin: 0;
+                    font-size: 26px;
+                    font-weight: 600;
+                  "
+                >
+                  New Support Request
+                </h1>
+                <p
+                  style="
+                    color: #efe9ff;
+                    margin: 8px 0 0 0;
+                    font-size: 13px;
+                  "
+                >
+                  A user has submitted the Contact Us form.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Content -->
+            <tr>
+              <td style="padding: 34px 30px">
+                <!-- User Summary -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin: 0 0 18px 0">
+                  <tr>
+                    <td
+                      style="
+                        background-color: #f6f7fb;
+                        border: 1px solid #e6e9f2;
+                        border-radius: 8px;
+                        padding: 18px;
+                      "
+                    >
+                      <p
+                        style="
+                          font-size: 12px;
+                          color: #4a4a4a;
+                          text-transform: uppercase;
+                          letter-spacing: 1px;
+                          margin: 0 0 10px 0;
+                        "
+                      >
+                        User Summary
+                      </p>
+                      <p style="font-size: 14px; color: #555555; margin: 0 0 8px 0">
+                        <strong>Name:</strong> {{first_name}} {{last_name}}
+                      </p>
+                      <p style="font-size: 14px; color: #555555; margin: 0">
+                        <strong>Email:</strong> {{email}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Request Details -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin: 18px 0">
+                  <tr>
+                    <td
+                      style="
+                        background-color: #eef6ff;
+                        border-left: 4px solid #667eea;
+                        border-radius: 4px;
+                        padding: 16px;
+                      "
+                    >
+                      <p
+                        style="
+                          font-size: 12px;
+                          color: #1f4f8e;
+                          text-transform: uppercase;
+                          letter-spacing: 1px;
+                          margin: 0 0 10px 0;
+                        "
+                      >
+                        Request Details
+                      </p>
+                      <p style="font-size: 14px; color: #1f4f8e; margin: 0 0 8px 0">
+                        <strong>Support Type:</strong> {{support_type}}
+                      </p>
+                      <p style="font-size: 14px; color: #1f4f8e; margin: 0 0 8px 0">
+                        <strong>Consultation Mode:</strong> {{consultation_mode}}
+                      </p>
+                      <p style="font-size: 14px; color: #1f4f8e; margin: 0 0 8px 0">
+                        <strong>Event Date:</strong> {{event_date}}
+                      </p>
+                      <p style="font-size: 14px; color: #1f4f8e; margin: 0">
+                        <strong>Preferred Time:</strong> {{preferred_time}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Message -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin: 18px 0">
+                  <tr>
+                    <td
+                      style="
+                        background-color: #fff8e1;
+                        border-left: 4px solid #ffc107;
+                        border-radius: 4px;
+                        padding: 16px;
+                      "
+                    >
+                      <p
+                        style="
+                          font-size: 12px;
+                          color: #856404;
+                          text-transform: uppercase;
+                          letter-spacing: 1px;
+                          margin: 0 0 10px 0;
+                        "
+                      >
+                        User Message
+                      </p>
+                      <p style="font-size: 14px; color: #856404; margin: 0">
+                        {{comments}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <div style="height: 1px; background-color: #e0e0e0; margin: 24px 0"></div>
+
+                <div style="font-size: 12px; color: #888888">
+                  System generated notification.
+                </div>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td
+                style="
+                  background-color: #f8f9fa;
+                  padding: 26px;
+                  text-align: center;
+                  border-top: 1px solid #e0e0e0;
+                "
+              >
+                <p style="font-size: 12px; color: #999999; margin: 5px 0">
+                  Internal notification email. Do not reply.
+                </p>
+                <p style="font-size: 12px; color: #999999; margin-top: 14px">
+                  (c) 2026 Your Company Name. All rights reserved.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

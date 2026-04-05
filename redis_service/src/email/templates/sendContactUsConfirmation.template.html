@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Request Received</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      font-family:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+        Arial, sans-serif;
+      background-color: #f4f4f4;
+    "
+  >
+    <table
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      style="background-color: #f4f4f4; padding: 20px 0"
+    >
+      <tr>
+        <td align="center">
+          <table
+            width="600"
+            cellpadding="0"
+            cellspacing="0"
+            style="background-color: #ffffff; max-width: 600px"
+          >
+            <!-- Header -->
+            <tr>
+              <td
+                style="
+                  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                  padding: 40px 20px;
+                  text-align: center;
+                "
+              >
+                <h1
+                  style="
+                    color: #ffffff;
+                    margin: 0;
+                    font-size: 28px;
+                    font-weight: 600;
+                  "
+                >
+                  📧 Contact Request Received
+                </h1>
+              </td>
+            </tr>
+
+            <!-- Content -->
+            <tr>
+              <td style="padding: 40px 30px">
+                <div
+                  style="font-size: 18px; color: #333333; margin-bottom: 20px"
+                >
+                  Hello {{first_name}},
+                </div>
+
+                <div
+                  style="
+                    font-size: 16px;
+                    color: #666666;
+                    line-height: 1.6;
+                    margin-bottom: 30px;
+                  "
+                >
+                  Thank you for contacting us. We have successfully received your request and our team will review your message shortly.
+                </div>
+
+                <!-- Reference Details -->
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="margin: 30px 0"
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: #f8f9fa;
+                        border-radius: 8px;
+                        padding: 20px;
+                      "
+                    >
+                      
+                      <p style="font-size: 14px; color: #666666; margin: 0 0 10px 0">
+                        <strong>Name:</strong> {{first_name}} {{last_name}}
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0 0 10px 0">
+                        <strong>Email:</strong> {{email}}
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0 0 10px 0">
+                        <strong>Support Type:</strong> {{support_type}}
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0 0 10px 0">
+                        <strong>Consultation Mode:</strong> {{consultation_mode}}
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0 0 10px 0">
+                        <strong>Event Date:</strong> {{event_date}}
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0">
+                        <strong>Preferred Time:</strong> {{preferred_time}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Comments Section (if provided) -->
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="margin: 25px 0"
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: #fff8e1;
+                        border-left: 4px solid #ffc107;
+                        padding: 15px;
+                        border-radius: 4px;
+                      "
+                    >
+                      <p style="font-size: 13px; color: #856404; margin: 0 0 5px 0; font-weight: 600">
+                        Your Message:
+                      </p>
+                      <p style="font-size: 14px; color: #666666; margin: 0">
+                        {{comments}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <div
+                  style="
+                    font-size: 16px;
+                    color: #666666;
+                    line-height: 1.6;
+                    margin-top: 30px;
+                  "
+                >
+                  Our support team will get back to you as soon as possible. We typically respond within <strong>24-48 hours</strong> during business days.
+                </div>
+
+                <!-- Info Box -->
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="margin: 25px 0"
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: #e7f3ff;
+                        border-left: 4px solid #667eea;
+                        padding: 15px;
+                        border-radius: 4px;
+                      "
+                    >
+                      <p style="font-size: 14px; color: #1a5490; margin: 0">
+                        💡 <strong>What happens next?</strong> Our team is reviewing your message and will contact you directly via email or phone to discuss your {{supportType}} requirements.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <div
+                  style="height: 1px; background-color: #e0e0e0; margin: 25px 0"
+                ></div>
+
+                <div style="font-size: 14px; color: #666666; line-height: 1.6">
+                  If you have any urgent concerns or additional information to share, please feel free to reach out to our support team directly.
+                </div>
+
+                <div style="font-size: 16px; color: #333333; margin-top: 30px">
+                  Best regards,<br />
+                  <strong>Support Team</strong>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td
+                style="
+                  background-color: #f8f9fa;
+                  padding: 30px;
+                  text-align: center;
+                  border-top: 1px solid #e0e0e0;
+                "
+              >
+                <p style="font-size: 13px; color: #999999; margin: 5px 0">
+                  This is an automated message, please do not reply to this
+                  email.
+                </p>
+                <p style="font-size: 13px; color: #999999; margin: 5px 0">
+                  Need help?
+                  
+                    href="https://yourwebsite.com/support"
+                    style="color: #667eea; text-decoration: none"
+                    >Contact Support</a
+                  >
+                </p>
+                <p style="font-size: 13px; color: #999999; margin-top: 20px">
+                  © 2026 Your Company Name. All rights reserved.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
