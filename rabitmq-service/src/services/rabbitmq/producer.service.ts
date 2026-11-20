@@ -10,6 +10,7 @@ import logger from "../../config/logger.config";
 class RabbitMQProducer {
   constructor() {}
 
+  // ------------- Direct ---------------
   async mailMessageProducer(data: any): Promise<Boolean> {
     logger.info(
       `producer.service - mailMessageProducer - ==> Sending message for queue: ${queueNames.mailQueue}`,
@@ -62,7 +63,7 @@ class RabbitMQProducer {
 
     // creationg queue link to the exhange using routing
     await channel.bindQueue(
-      queueNames.mailQueue,
+      queueNames.subscribeUsersMailQueue,
       queueExchange.mailExchange,
       queueRouting.subscribeUserMailKey,
     );
@@ -70,6 +71,37 @@ class RabbitMQProducer {
     const published = channel.publish(
       queueExchange.mailExchange,
       queueRouting.subscribeUserMailKey,
+      Buffer.from(JSON.stringify(data)),
+    );
+
+    if (published) return true;
+
+    return false;
+  }
+
+  // -------------- Topic ----------------
+  async notificationTopicMessageProducer(
+    routingKey: string,
+    data: any,
+  ): Promise<Boolean> {
+    logger.info(
+      `producer.service - notificationTopicMessageProducer - ==> Sending message for topic routing queue`,
+      routingKey,
+    );
+    const channel = await getRabbitMQChannel();
+
+    // creating an exchange
+    await channel.assertExchange(
+      queueExchange.notificationExchangeTopic,
+      "topic",
+      {
+        durable: true,
+      },
+    );
+
+    const published = channel.publish(
+      queueExchange.notificationExchangeTopic,
+      routingKey,
       Buffer.from(JSON.stringify(data)),
     );
 

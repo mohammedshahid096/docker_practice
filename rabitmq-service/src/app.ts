@@ -33,6 +33,33 @@ app.get("/subscribe", (_req, res) => {
   res.send(true);
 });
 
+app.get("/order", (_req, res) => {
+  const rabbitmqProducer = new RabbitMQProducer();
+  rabbitmqProducer.notificationTopicMessageProducer("order.placed", {
+    orderId: 12345,
+    status: "placed",
+  });
+  res.send(true);
+});
+
+app.get("/payment", (_req, res) => {
+  const rabbitmqProducer = new RabbitMQProducer();
+  rabbitmqProducer.notificationTopicMessageProducer("payment.processed", {
+    orderId: 12345,
+    status: "proccessed",
+  });
+  res.send(true);
+});
+
+app.get("/payment", (_req, res) => {
+  const rabbitmqProducer = new RabbitMQProducer();
+  rabbitmqProducer.notificationTopicMessageProducer("payment.processed", {
+    paymentId: 12345,
+    status: "processed",
+  });
+  res.send(true);
+});
+
 // error handling
 app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   errorHandling.handlingAppError(err, res);
