@@ -51,7 +51,7 @@ app.get("/payment", (_req, res) => {
   res.send(true);
 });
 
-// for fanout
+// for fanout exchange type
 app.get("/new-launch", (_req, res) => {
   const rabbitmqProducer = new RabbitMQProducer();
   rabbitmqProducer.announceNewProduct({
@@ -59,6 +59,44 @@ app.get("/new-launch", (_req, res) => {
     name: "iphone 19 pro max",
     price: 20000,
   });
+  res.send(true);
+});
+
+//  headers exchange type
+app.get("/headers", (_req, res) => {
+  const rabbitmqProducer = new RabbitMQProducer();
+  rabbitmqProducer.sendNotificationHeaderExchangeProducer(
+    {
+      "x-match": "all",
+      "notification-type": "new_video",
+      "content-type": "video",
+    },
+    "new music video uploaded",
+  );
+  rabbitmqProducer.sendNotificationHeaderExchangeProducer(
+    {
+      "x-match": "all",
+      "notification-type": "live_stream",
+      "content-type": "gaming",
+    },
+    "Gaming Live stream started",
+  );
+  rabbitmqProducer.sendNotificationHeaderExchangeProducer(
+    {
+      "x-match": "any",
+      "notification-type-comment": "comment",
+      "content-type": "vlog",
+    },
+    "New comment on your vlog",
+  );
+  rabbitmqProducer.sendNotificationHeaderExchangeProducer(
+    {
+      "x-match": "any",
+      "notification-type-like": "like",
+      "content-type": "vlog",
+    },
+    "someone like on your vlog",
+  );
   res.send(true);
 });
 

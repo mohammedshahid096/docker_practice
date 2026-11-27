@@ -137,6 +137,36 @@ class RabbitMQProducer {
 
     return false;
   }
+
+  // ------------- Header --------------------
+  async sendNotificationHeaderExchangeProducer(
+    header: any,
+    message: any,
+  ): Promise<boolean> {
+    logger.info(
+      `producer.service - sendNotificationHeaderExchangeProducer `,
+      header,
+    );
+
+    const channel = await getRabbitMQChannel();
+
+    // creating a header exchange
+    await channel.assertExchange(queueExchange.headerExchange, "headers", {
+      durable: true,
+    });
+
+    channel.publish(
+      queueExchange.headerExchange,
+      "",
+      Buffer.from(JSON.stringify(message)),
+      {
+        persistent: true,
+        headers: header,
+      },
+    );
+
+    return true;
+  }
 }
 
 export default RabbitMQProducer;

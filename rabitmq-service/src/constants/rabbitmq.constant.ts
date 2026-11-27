@@ -11,6 +11,8 @@ export const queueExchange = {
   notificationExchangeTopic: "notification_exchange",
 
   newProductLaunchFanout: "new_product_launch",
+
+  headerExchange: "header_exchange",
 };
 
 export const queueRouting = {

@@ -19,8 +19,14 @@ class RabbitMQConsumer {
     // fanout
     this.smsNotification();
     this.pushNotification();
+
+    // headers
+    this.consumeNewVideoNotification();
+    this.consumeLiveStreamNotification();
+    this.consumeAnyMatchingNotifications();
   }
 
+  // direct
   private async emailMessageConsumer(): Promise<void> {
     const channel = await getRabbitMQChannel();
     await channel.assertQueue(queueNames.mailQueue, {
@@ -71,6 +77,7 @@ class RabbitMQConsumer {
     });
   }
 
+  // topic
   private async orderNotificationMessageConsumer(): Promise<void> {
     const channel = await getRabbitMQChannel();
     // creating an exchange
@@ -149,6 +156,7 @@ class RabbitMQConsumer {
     });
   }
 
+  // fanout
   private async smsNotification(): Promise<void> {
     const channel = await getRabbitMQChannel();
     // creating an exchange
@@ -223,6 +231,110 @@ class RabbitMQConsumer {
       } catch (error) {
         logger.error(
           "services - rabbitmq - consumer.service - pushNotification",
+          error,
+        );
+        // channel.nack(msg);
+      }
+    });
+  }
+
+  // headers
+  private async consumeNewVideoNotification(): Promise<void> {
+    const channel = await getRabbitMQChannel();
+    // creating an exchange
+    await channel.assertExchange(queueExchange.headerExchange, "headers", {
+      durable: true,
+    });
+
+    const queue = await channel.assertQueue("", { exclusive: true });
+
+    await channel.bindQueue(queue.queue, queueExchange.headerExchange, "", {
+      "x-match": "all",
+      "notification-type": "new_video",
+      "content-type": "video",
+    });
+
+    channel.consume(queue.queue, async (msg) => {
+      if (!msg) return;
+      try {
+        const content = JSON.parse(msg.content.toString()) as any;
+
+        logger.info(
+          `consumer.Service - consumeNewVideoNotification ==> Received message for headers: ${JSON.stringify(content)}`,
+        );
+
+        channel.ack(msg);
+      } catch (error) {
+        logger.error(
+          "services - rabbitmq - consumer.service - consumeNewVideoNotification",
+          error,
+        );
+        // channel.nack(msg);
+      }
+    });
+  }
+  private async consumeLiveStreamNotification(): Promise<void> {
+    const channel = await getRabbitMQChannel();
+    // creating an exchange
+    await channel.assertExchange(queueExchange.headerExchange, "headers", {
+      durable: true,
+    });
+
+    const queue = await channel.assertQueue("", { exclusive: true });
+
+    await channel.bindQueue(queue.queue, queueExchange.headerExchange, "", {
+      "x-match": "all",
+      "notification-type": "live_stream",
+      "content-type": "gaming",
+    });
+
+    channel.consume(queue.queue, async (msg) => {
+      if (!msg) return;
+      try {
+        const content = JSON.parse(msg.content.toString()) as any;
+
+        logger.info(
+          `consumer.Service - consumeLiveStreamNotification ==> Received message for headers: ${JSON.stringify(content)}`,
+        );
+
+        channel.ack(msg);
+      } catch (error) {
+        logger.error(
+          "services - rabbitmq - consumer.service - consumeLiveStreamNotification",
+          error,
+        );
+        // channel.nack(msg);
+      }
+    });
+  }
+  private async consumeAnyMatchingNotifications(): Promise<void> {
+    const channel = await getRabbitMQChannel();
+    // creating an exchange
+    await channel.assertExchange(queueExchange.headerExchange, "headers", {
+      durable: true,
+    });
+
+    const queue = await channel.assertQueue("", { exclusive: true });
+
+    await channel.bindQueue(queue.queue, queueExchange.headerExchange, "", {
+      "x-match": "any",
+      "notification-type-comment": "comment",
+      "notification-type-like": "like",
+    });
+
+    channel.consume(queue.queue, async (msg) => {
+      if (!msg) return;
+      try {
+        const content = JSON.parse(msg.content.toString()) as any;
+
+        logger.info(
+          `consumer.Service - consumeAnyMatchingNotifications ==> Received message for headers: ${JSON.stringify(content)}`,
+        );
+
+        channel.ack(msg);
+      } catch (error) {
+        logger.error(
+          "services - rabbitmq - consumer.service - consumeAnyMatchingNotifications",
           error,
         );
         // channel.nack(msg);
