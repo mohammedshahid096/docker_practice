@@ -28,3 +28,7 @@ flowchart LR
 - **Exchange** matches the message's **routing key** against each queue's **binding key** and routes it to the matching **queue**.
 - **Consumer** pulls and processes messages from its subscribed **queue**.
 - **Code check:** In `mailMessageToSubscribedUsersProducer`, `bindQueue` currently binds `queueNames.mailQueue` instead of `queueNames.subscribeUsersMailQueue` — update that target queue so `subscribeUserMailKey` routes to the right queue.
+
+## Playlist Reference
+
+https://www.youtube.com/playlist?list=PLZVBmpM0E_DHlA9Fz4QznfPjUKPIz48I7
