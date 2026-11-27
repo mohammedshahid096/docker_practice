@@ -8,10 +8,17 @@ class RabbitMQConsumer {
 
   loadConsumers(): void {
     console.log(`${cyan("[RabbitMQ]")} Loading consumers`);
+    // direct
     this.emailMessageConsumer();
     this.subscribeUserMessageConsumer();
+
+    // topic
     this.orderNotificationMessageConsumer();
     this.paymentNotificationMessageConsumer();
+
+    // fanout
+    this.smsNotification();
+    this.pushNotification();
   }
 
   private async emailMessageConsumer(): Promise<void> {
@@ -135,6 +142,87 @@ class RabbitMQConsumer {
       } catch (error) {
         logger.error(
           "services - rabbitmq - consumer.service - paymentNotificationMessageConsumer",
+          error,
+        );
+        // channel.nack(msg);
+      }
+    });
+  }
+
+  private async smsNotification(): Promise<void> {
+    const channel = await getRabbitMQChannel();
+    // creating an exchange
+    await channel.assertExchange(
+      queueExchange.newProductLaunchFanout,
+      "fanout",
+      {
+        durable: true,
+      },
+    );
+
+    const queue = await channel.assertQueue("", { exclusive: true });
+
+    console.log(queue);
+
+    await channel.bindQueue(
+      queue.queue,
+      queueExchange.newProductLaunchFanout,
+      "",
+    );
+
+    channel.consume(queue.queue, async (msg) => {
+      if (!msg) return;
+      try {
+        const content = JSON.parse(msg.content.toString()) as any;
+
+        logger.info(
+          `consumer.Service - smsNotification ==> Received message for fanout: ${JSON.stringify(content)}`,
+        );
+
+        channel.ack(msg);
+      } catch (error) {
+        logger.error(
+          "services - rabbitmq - consumer.service - smsNotification",
+          error,
+        );
+        // channel.nack(msg);
+      }
+    });
+  }
+  private async pushNotification(): Promise<void> {
+    const channel = await getRabbitMQChannel();
+    // creating an exchange
+    await channel.assertExchange(
+      queueExchange.newProductLaunchFanout,
+      "fanout",
+      {
+        durable: true,
+      },
+    );
+
+    const queue = await channel.assertQueue("", { exclusive: true });
+
+    console.log(queue);
+
+    await channel.bindQueue(
+      queue.queue,
+      queueExchange.newProductLaunchFanout,
+      "",
+    );
+
+    channel.consume(queue.queue, async (msg) => {
+      if (!msg) return;
+      try {
+        const content = JSON.parse(msg.content.toString()) as any;
+
+        logger.info(
+          `consumer.Service - pushNotification ==> Received message for fanout: ${JSON.stringify(content)}`,
+        );
+
+        channel.ack(msg);
+      } catch (error) {
+        logger.error(
+          "services - rabbitmq - consumer.service - pushNotification",
           error,
         );
         // channel.nack(msg);

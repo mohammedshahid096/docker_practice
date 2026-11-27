@@ -51,11 +51,13 @@ app.get("/payment", (_req, res) => {
   res.send(true);
 });
 
-app.get("/payment", (_req, res) => {
+// for fanout
+app.get("/new-launch", (_req, res) => {
   const rabbitmqProducer = new RabbitMQProducer();
-  rabbitmqProducer.notificationTopicMessageProducer("payment.processed", {
-    paymentId: 12345,
-    status: "processed",
+  rabbitmqProducer.announceNewProduct({
+    id: 12345,
+    name: "iphone 19 pro max",
+    price: 20000,
   });
   res.send(true);
 });

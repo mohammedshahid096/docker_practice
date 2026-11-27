@@ -109,6 +109,34 @@ class RabbitMQProducer {
 
     return false;
   }
+
+  // ---------------- Fanout----------------
+  async announceNewProduct(product: any): Promise<Boolean> {
+    logger.info(`producer.service - announceNewProduct `, product);
+
+    const channel = await getRabbitMQChannel();
+
+    // creating an exchange
+    await channel.assertExchange(
+      queueExchange.newProductLaunchFanout,
+      "fanout",
+      {
+        durable: true,
+      },
+    );
+
+    // have to ignore the routing key
+    const published = channel.publish(
+      queueExchange.newProductLaunchFanout,
+      "",
+      Buffer.from(JSON.stringify(product)),
+      { persistent: true },
+    );
+
+    if (published) return true;
+
+    return false;
+  }
 }
 
 export default RabbitMQProducer;
